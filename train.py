@@ -34,14 +34,13 @@ if __name__=="__main__":
 
     # Random forest model
     rf = RandomForestClassifier()
-    pipeline = Pipeline([("classifier", rf)])
-    pipeline.fit(X_train, y_train)
+    rf.fit(X_train, y_train)
 
     print('Model trained!')
 
     filename_p = 'model.sav'
     print('Saving model in %s' % filename_p)
-    joblib.dump(pipeline, filename_p)
+    joblib.dump(rf, filename_p)
     print('Model saved!')
 
     model = joblib.load('model.sav')
